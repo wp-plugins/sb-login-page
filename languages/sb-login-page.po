@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sb-login-page\n"
-"POT-Creation-Date: 2014-09-28 15:02+0700\n"
-"PO-Revision-Date: 2014-09-28 15:02+0700\n"
-"Last-Translator: SB Team <laidinhcuongvn@gmail.com>\n"
+"POT-Creation-Date: 2015-01-04 21:51+0700\n"
+"PO-Revision-Date: 2015-01-04 21:51+0700\n"
+"Last-Translator: Cuong Dinh Lai <laidinhcuongvn@gmail.com>\n"
 "Language-Team: SB Team <laidinhcuongvn@gmail.com>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -17,23 +17,410 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: ..\n"
 
-#: ../inc/sb-plugin-admin.php:16
+#: ../inc/module/module-account.php:36 ../inc/module/module-account.php:204
+msgid "Thông tin tài khoản"
+msgstr ""
+
+#: ../inc/module/module-account.php:37 ../inc/module/module-account.php:161
+#: ../inc/module/module-login.php:14 ../inc/module/module-register.php:125
+msgid "Mật khẩu"
+msgstr ""
+
+#: ../inc/module/module-account.php:38 ../inc/module/module-account.php:47
+msgid "Thông tin cá nhân"
+msgstr ""
+
+#: ../inc/module/module-account.php:39
+msgid "Thoát"
+msgstr ""
+
+#: ../inc/module/module-account.php:48
+msgid "Thay đổi thông tin cá nhân và thông tin liên hệ cho tài khoản của bạn"
+msgstr ""
+
+#: ../inc/module/module-account.php:52 ../inc/module/module-register.php:73
+msgid "Họ và tên"
+msgstr ""
+
+#: ../inc/module/module-account.php:56
+msgid "Họ và tên thật của bạn."
+msgstr ""
+
+#: ../inc/module/module-account.php:60
+msgid "Giới tính"
+msgstr ""
+
+#: ../inc/module/module-account.php:64
+msgid "Nam"
+msgstr ""
+
+#: ../inc/module/module-account.php:65
+msgid "Nữ"
+msgstr ""
+
+#: ../inc/module/module-account.php:67
+msgid "Chọn thông tin giới tính của bạn."
+msgstr ""
+
+#: ../inc/module/module-account.php:71
+msgid "Ngày sinh"
+msgstr ""
+
+#: ../inc/module/module-account.php:120
+msgid "Chọn thông tin ngày sinh của bạn theo định dạng d/m/Y."
+msgstr ""
+
+#: ../inc/module/module-account.php:122
+msgid "Chọn thông tin ngày sinh của bạn theo định dạng Y/m/d."
+msgstr ""
+
+#: ../inc/module/module-account.php:129 ../inc/module/module-register.php:99
+msgid "Số điện thoại"
+msgstr ""
+
+#: ../inc/module/module-account.php:133
+msgid "Số điện thoại của bạn đang sử dụng."
+msgstr ""
+
+#: ../inc/module/module-account.php:137
+msgid "CMND"
+msgstr ""
+
+#: ../inc/module/module-account.php:141
+msgid "Số chứng minh nhân dân của bạn."
+msgstr ""
+
+#: ../inc/module/module-account.php:145 ../inc/module/module-register.php:112
+msgid "Địa chỉ"
+msgstr ""
+
+#: ../inc/module/module-account.php:149
+msgid "Địa chỉ nơi bạn đang ở."
+msgstr ""
+
+#: ../inc/module/module-account.php:153 ../inc/module/module-account.php:196
+#: ../inc/module/module-account.php:225
+msgid "Lưu thay đổi"
+msgstr ""
+
+#: ../inc/module/module-account.php:162
+msgid "Quản lý và thay đổi mật khẩu của bạn"
+msgstr ""
+
+#: ../inc/module/module-account.php:166
+msgid "Mật khẩu hiện tại"
+msgstr ""
+
+#: ../inc/module/module-account.php:170
+msgid "Nhập vào mật khẩu hiện tại của bạn để thay đổi mật khẩu mới."
+msgstr ""
+
+#: ../inc/module/module-account.php:174
+msgid "Mật khẩu mới"
+msgstr ""
+
+#: ../inc/module/module-account.php:178
+msgid "Nhập mật khẩu mới."
+msgstr ""
+
+#: ../inc/module/module-account.php:182 ../inc/module/module-register.php:138
+msgid "Xác nhận mật khẩu"
+msgstr ""
+
+#: ../inc/module/module-account.php:186
+msgid "Nhập lại mật khẩu của bạn thêm lần nữa."
+msgstr ""
+
+#: ../inc/module/module-account.php:205
+msgid "Thay đổi thông tin cá nhân và tài khoản của bạn"
+msgstr ""
+
+#: ../inc/module/module-account.php:209
+msgid "Tên tài khoản"
+msgstr ""
+
+#: ../inc/module/module-account.php:213
+msgid "Tài khoản của bạn là duy nhất và không thể thay đổi."
+msgstr ""
+
+#: ../inc/module/module-account.php:217 ../inc/module/module-register.php:86
+msgid "Địa chỉ email"
+msgstr ""
+
+#: ../inc/module/module-account.php:221
+msgid "Địa chỉ email của bạn sẽ được giữ bí mật."
+msgstr ""
+
+#: ../inc/module/module-account.php:231
+msgid "Xóa tài khoản của tôi"
+msgstr ""
+
+#: ../inc/module/module-login.php:3 ../inc/module/module-lost-password.php:12
+#: ../inc/module/module-verify-email.php:7
+msgid "Một tài khoản dùng chung cho tất cả dịch vụ"
+msgstr ""
+
+#: ../inc/module/module-login.php:6 ../inc/module/module-login.php:24
+#: ../inc/module/module-lost-password.php:58
+msgid "Đăng nhập"
+msgstr ""
+
+#: ../inc/module/module-login.php:9 ../inc/module/module-lost-password.php:31
+msgid "Địa chỉ email hoặc tên tài khoản"
+msgstr ""
+
+#: ../inc/module/module-login.php:27
+msgid "Duy trì trạng thái đăng nhập"
+msgstr ""
+
+#: ../inc/module/module-login.php:36
+msgid "Bạn đã đăng nhập sai hơn 3 lần, xin vui lòng quay lại sau."
+msgstr ""
+
+#: ../inc/module/module-login.php:38
+msgid "Đăng nhập không thành công, xin vui lòng thử lại."
+msgstr ""
+
+#: ../inc/module/module-login.php:45 ../inc/module/module-lost-password.php:15
+#: ../inc/module/module-verify-email.php:32
+msgid "Quên mật khẩu"
+msgstr ""
+
+#: ../inc/module/module-login.php:47 ../inc/module/module-lost-password.php:60
+#: ../inc/module/module-register.php:156
+#: ../inc/module/module-verify-email.php:34
+msgid "Tạo tài khoản"
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:19
+#: ../inc/module/module-verify-email.php:13
+msgid "Mã xác nhận"
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:23
+msgid "Nhập mật khẩu mới"
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:26
+msgid "Nhập lại mật khẩu"
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:43
+#: ../inc/module/module-verify-email.php:23
+msgid "Xác nhận"
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:49
+#: ../inc/module/module-verify-email.php:27
+msgid "Mã xác nhận của bạn nhập không đúng."
+msgstr ""
+
+#: ../inc/module/module-lost-password.php:51
+msgid "Tài khoản hoặc địa chỉ email không tồn tại."
+msgstr ""
+
+#: ../inc/module/module-register.php:18
+msgid "Địa chỉ email của bạn đã tồn tại."
+msgstr ""
+
+#: ../inc/module/module-register.php:21
+msgid "Mã bảo mật bạn nhập không đúng."
+msgstr ""
+
+#: ../inc/module/module-register.php:59
+msgid "Tài khoản của bạn đã được tạo, xin vui lòng kiểm tra email để kích hoạt."
+msgstr ""
+
+#: ../inc/module/module-register.php:69
+msgid "Đăng ký tài khoản"
+msgstr ""
+
+#: ../inc/module/module-verify-email.php:10
+msgid "Xác thực tài khoản"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:18
 msgid "SB Login Page options page"
 msgstr ""
 
+#: ../inc/sb-plugin-admin.php:19
+msgid "Allow user register"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:20
+msgid "Use SB Login"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:22
+msgid "Account page"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:23
+msgid "Login page"
+msgstr ""
+
 #: ../inc/sb-plugin-admin.php:24
+msgid "Lost password page"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:25
+msgid "Register page"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:27
+msgid "Login redirect"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:28
+msgid "Logout redirect"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:39
+msgid "Turn on or turn off the function to force using SB Login system."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:48 ../inc/sb-plugin-admin.php:65
+msgid "Home"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:49 ../inc/sb-plugin-admin.php:68
+msgid "Current"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:56
+msgid "Choose the redirect page when user logout."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:66
+msgid "Profile"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:67
+msgid "Dashboard"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:75
+msgid "Choose the redirect page when user login."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:91
+msgid "Turn on or turn off the function to allow user can register."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:103 ../inc/sb-plugin-admin.php:115
+#: ../inc/sb-plugin-admin.php:127 ../inc/sb-plugin-admin.php:139
+msgid "Choose the page for user login and sign up."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:151
 msgid "You can enter url or upload new logo image file."
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:22
+#: ../inc/sb-plugin-ajax.php:15
+msgid "Tài khoản của bạn chưa được kích hoạt"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:140
+msgid "Địa chỉ email của bạn không đúng"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:143
+msgid "Địa chỉ email của bạn đã tồn tại"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:171
+msgid "Địa chỉ email của bạn đã có người sử dụng"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:173
+msgid "Bạn chỉ có thể thay đổi email được 1 lần trong vòng 24 giờ"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:175
+msgid "Địa chỉ email của bạn nhập không đúng"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:197
+msgid "Mật khẩu của bạn nhập không đúng"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:201
+msgid "Mật khẩu mới của bạn nhập không đúng"
+msgstr ""
+
+#: ../inc/sb-plugin-ajax.php:205
+msgid "Mật khẩu xác nhận phải giống với mục bên trên"
+msgstr ""
+
+#: ../inc/sb-plugin-functions.php:6
+msgid "Account"
+msgstr ""
+
+#: ../inc/sb-plugin-functions.php:10
+msgid "Login"
+msgstr ""
+
+#: ../inc/sb-plugin-functions.php:14
+msgid "Lost password"
+msgstr ""
+
+#: ../inc/sb-plugin-functions.php:18
+msgid "Register"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:25
+msgid "Độ mạnh mật khẩu"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:26
+msgid "Rất yếu"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:27
+msgid "Yếu"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:29
+msgid "Mạnh"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:30
+msgid "Không khớp"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:171
+msgid "Phone"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:172
+msgid "Address"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:173
+msgid "Identity"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:195
+msgid "Extra information"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:198
+msgid "Gender"
+msgstr ""
+
+#: ../inc/sb-plugin-hook.php:210
+msgid "Birthday"
+msgstr ""
+
+#: ../inc/sb-plugin-install.php:19
+msgid "Error"
+msgstr ""
+
+#: ../inc/sb-plugin-install.php:19
 #, php-format
-msgid "You must install plugin %1$s first! Click here to %2$s."
+msgid "The plugin with name %1$s has been deactivated because of missing %2$s plugin"
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:22
-msgid "go back"
-msgstr ""
-
-#: ../inc/sb-plugin-functions.php:30
+#: ../inc/sb-plugin-install.php:29
 msgid "Settings"
 msgstr ""
