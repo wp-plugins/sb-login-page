@@ -54,14 +54,11 @@ if(!$has_error) {
     }
 }
 ?>
-<div class="row sb-signup-page">
+<div class="sb-signup-page">
     <?php if($user_inserted) : ?>
         <div class="inserted-message bg-success sb-message-box"><?php _e('Tài khoản của bạn đã được tạo, xin vui lòng kiểm tra email để kích hoạt.', 'sb-login-page'); ?></div>
     <?php else : ?>
-        <div class="col-sm-8">
-
-        </div>
-        <div class="col-sm-4">
+        <div class="col-right">
             <div class="sb-signup">
                 <div class="sb-signup-container">
                     <form class="sb-signup-form" action="" name="sb-signup-form" method="post">
@@ -160,6 +157,9 @@ if(!$has_error) {
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-left">
+            <?php do_action('sb_login_page_register_left'); ?>
         </div>
     <?php endif; ?>
 </div>

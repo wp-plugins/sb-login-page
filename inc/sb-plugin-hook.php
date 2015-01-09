@@ -218,6 +218,15 @@ function sb_login_page_user_profile_extra_field($user) {
                 ?>
             </td>
         </tr>
+        <?php if(SB_User::is_admin()) : ?>
+            <tr>
+                <th><label for="activation_code"><?php _e('Activation code', 'sb-login-page'); ?></label></th>
+                <td>
+                    <?php $code = SB_User::get_activation_code($user); ?>
+                    <input type="text" class="regular-text" value="<?php echo $code; ?>" id="activation_code" name="activation_code" readonly>
+                </td>
+            </tr>
+        <?php endif; ?>
     </table>
 <?php
 }

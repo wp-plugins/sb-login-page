@@ -225,12 +225,14 @@ $year_min = $year_max - 150;
                             <button type="submit" class="btn btn-save save-account" disabled="disabled" data-id="<?php echo $user_id; ?>"><?php _e('Lưu thay đổi', 'sb-login-page'); ?></button>
                             <span class="spinner-small settings-save-spinner"></span>
                         </div>
-                        <hr class="full-width">
-                        <div class="control-group deactivate">
-                            <div class="controls">
-                                <a href="<?php echo $deactivate_url; ?>"><?php _e('Xóa tài khoản của tôi', 'sb-login-page'); ?></a>
+                        <?php if(sb_login_page_can_deactivate_account()) : ?>
+                            <hr class="full-width">
+                            <div class="control-group deactivate">
+                                <div class="controls">
+                                    <a href="<?php echo $deactivate_url; ?>"><?php _e('Xóa tài khoản của tôi', 'sb-login-page'); ?></a>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endif; ?>

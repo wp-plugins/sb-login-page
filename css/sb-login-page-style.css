@@ -113,9 +113,13 @@
 .sb-accounts .sb-signup-page {
     overflow: hidden;
 }
-.sb-accounts .sb-signup-page .col-sm-4 {
-    margin: 0 auto;
-    max-width: 400px;
+.sb-accounts .sb-signup-page .col-right {
+    float: right;
+    width: 362px;
+}
+.sb-accounts .sb-signup-page .col-left {
+    margin: 0 372px 0 0;
+    padding-top: 18px;
 }
 .sb-accounts .sb-form .errors,
 .sb-accounts .sb-signup-form .errors,
@@ -163,9 +167,11 @@
     border: 1px solid #ddd;
     color: #444;
     display: block;
+    font-size: 13px;
     margin: 13px 5px 5px 1px;
     padding: 3px 5px;
     text-align: center;
+    vertical-align: middle;
     width: 100%;
 }
 .sb-accounts .sb-password-strength-indicator.bad {
@@ -380,4 +386,38 @@
 }
 .sb-accounts .btn-save {
     min-width: 100px;
+}
+.sb-accounts .sb-user-profile .content-main .module input[type="password"],
+.sb-accounts .sb-user-profile .content-main .module input[type="text"] {
+    line-height: 16px;
+    padding: 7px;
+}
+body.sb-user {
+    margin: 0;
+}
+.sb-accounts .sb-signup-page {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 44px;
+}
+.sb-accounts .sb-signup-page .col-left h2 {
+    color: #737373;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    text-align: center;
+}
+.sb-accounts .sb-signup-page .col-left p {
+    color: #737373;
+    font-size: 13px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.sb-accounts .sb-signup-page .col-left img {
+    display: block;
+    margin: 0 auto 80px;
+    max-width: 300px;
+}
+.sb-accounts .dashboard .module.user-avatar-box {
+    min-height: 154px;
 }

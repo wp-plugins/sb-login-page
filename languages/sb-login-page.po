@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: sb-login-page\n"
-"POT-Creation-Date: 2015-01-04 21:51+0700\n"
-"PO-Revision-Date: 2015-01-04 21:51+0700\n"
+"POT-Creation-Date: 2015-01-09 23:12+0700\n"
+"PO-Revision-Date: 2015-01-09 23:12+0700\n"
 "Last-Translator: Cuong Dinh Lai <laidinhcuongvn@gmail.com>\n"
 "Language-Team: SB Team <laidinhcuongvn@gmail.com>\n"
 "Language: vi\n"
@@ -22,7 +22,7 @@ msgid "Thông tin tài khoản"
 msgstr ""
 
 #: ../inc/module/module-account.php:37 ../inc/module/module-account.php:161
-#: ../inc/module/module-login.php:14 ../inc/module/module-register.php:125
+#: ../inc/module/module-login.php:14 ../inc/module/module-register.php:122
 msgid "Mật khẩu"
 msgstr ""
 
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Thay đổi thông tin cá nhân và thông tin liên hệ cho tài khoản của bạn"
 msgstr ""
 
-#: ../inc/module/module-account.php:52 ../inc/module/module-register.php:73
+#: ../inc/module/module-account.php:52 ../inc/module/module-register.php:70
 msgid "Họ và tên"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Chọn thông tin ngày sinh của bạn theo định dạng Y/m/d."
 msgstr ""
 
-#: ../inc/module/module-account.php:129 ../inc/module/module-register.php:99
+#: ../inc/module/module-account.php:129 ../inc/module/module-register.php:96
 msgid "Số điện thoại"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Số chứng minh nhân dân của bạn."
 msgstr ""
 
-#: ../inc/module/module-account.php:145 ../inc/module/module-register.php:112
+#: ../inc/module/module-account.php:145 ../inc/module/module-register.php:109
 msgid "Địa chỉ"
 msgstr ""
 
@@ -123,7 +123,7 @@ msgstr ""
 msgid "Nhập mật khẩu mới."
 msgstr ""
 
-#: ../inc/module/module-account.php:182 ../inc/module/module-register.php:138
+#: ../inc/module/module-account.php:182 ../inc/module/module-register.php:135
 msgid "Xác nhận mật khẩu"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgstr ""
 msgid "Tài khoản của bạn là duy nhất và không thể thay đổi."
 msgstr ""
 
-#: ../inc/module/module-account.php:217 ../inc/module/module-register.php:86
+#: ../inc/module/module-account.php:217 ../inc/module/module-register.php:83
 msgid "Địa chỉ email"
 msgstr ""
 
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Địa chỉ email của bạn sẽ được giữ bí mật."
 msgstr ""
 
-#: ../inc/module/module-account.php:231
+#: ../inc/module/module-account.php:232
 msgid "Xóa tài khoản của tôi"
 msgstr ""
 
@@ -187,7 +187,7 @@ msgid "Quên mật khẩu"
 msgstr ""
 
 #: ../inc/module/module-login.php:47 ../inc/module/module-lost-password.php:60
-#: ../inc/module/module-register.php:156
+#: ../inc/module/module-register.php:153
 #: ../inc/module/module-verify-email.php:34
 msgid "Tạo tài khoản"
 msgstr ""
@@ -228,10 +228,11 @@ msgid "Mã bảo mật bạn nhập không đúng."
 msgstr ""
 
 #: ../inc/module/module-register.php:59
-msgid "Tài khoản của bạn đã được tạo, xin vui lòng kiểm tra email để kích hoạt."
+msgid ""
+"Tài khoản của bạn đã được tạo, xin vui lòng kiểm tra email để kích hoạt."
 msgstr ""
 
-#: ../inc/module/module-register.php:69
+#: ../inc/module/module-register.php:66
 msgid "Đăng ký tài khoản"
 msgstr ""
 
@@ -275,44 +276,54 @@ msgstr ""
 msgid "Logout redirect"
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:39
+#: ../inc/sb-plugin-admin.php:29
+msgid "Social login"
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:40
+msgid ""
+"Turn on or turn off the function for user connect account with social "
+"network."
+msgstr ""
+
+#: ../inc/sb-plugin-admin.php:52
 msgid "Turn on or turn off the function to force using SB Login system."
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:48 ../inc/sb-plugin-admin.php:65
+#: ../inc/sb-plugin-admin.php:61 ../inc/sb-plugin-admin.php:78
 msgid "Home"
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:49 ../inc/sb-plugin-admin.php:68
+#: ../inc/sb-plugin-admin.php:62 ../inc/sb-plugin-admin.php:81
 msgid "Current"
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:56
+#: ../inc/sb-plugin-admin.php:69
 msgid "Choose the redirect page when user logout."
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:66
+#: ../inc/sb-plugin-admin.php:79
 msgid "Profile"
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:67
+#: ../inc/sb-plugin-admin.php:80
 msgid "Dashboard"
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:75
+#: ../inc/sb-plugin-admin.php:88
 msgid "Choose the redirect page when user login."
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:91
+#: ../inc/sb-plugin-admin.php:104
 msgid "Turn on or turn off the function to allow user can register."
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:103 ../inc/sb-plugin-admin.php:115
-#: ../inc/sb-plugin-admin.php:127 ../inc/sb-plugin-admin.php:139
+#: ../inc/sb-plugin-admin.php:116 ../inc/sb-plugin-admin.php:128
+#: ../inc/sb-plugin-admin.php:140 ../inc/sb-plugin-admin.php:152
 msgid "Choose the page for user login and sign up."
 msgstr ""
 
-#: ../inc/sb-plugin-admin.php:151
+#: ../inc/sb-plugin-admin.php:164
 msgid "You can enter url or upload new logo image file."
 msgstr ""
 
@@ -352,19 +363,19 @@ msgstr ""
 msgid "Mật khẩu xác nhận phải giống với mục bên trên"
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:6
+#: ../inc/sb-plugin-functions.php:8
 msgid "Account"
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:10
+#: ../inc/sb-plugin-functions.php:12
 msgid "Login"
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:14
+#: ../inc/sb-plugin-functions.php:16
 msgid "Lost password"
 msgstr ""
 
-#: ../inc/sb-plugin-functions.php:18
+#: ../inc/sb-plugin-functions.php:20
 msgid "Register"
 msgstr ""
 
@@ -412,13 +423,18 @@ msgstr ""
 msgid "Birthday"
 msgstr ""
 
+#: ../inc/sb-plugin-hook.php:223
+msgid "Activation code"
+msgstr ""
+
 #: ../inc/sb-plugin-install.php:19
 msgid "Error"
 msgstr ""
 
 #: ../inc/sb-plugin-install.php:19
 #, php-format
-msgid "The plugin with name %1$s has been deactivated because of missing %2$s plugin"
+msgid ""
+"The plugin with name %1$s has been deactivated because of missing %2$s plugin"
 msgstr ""
 
 #: ../inc/sb-plugin-install.php:29

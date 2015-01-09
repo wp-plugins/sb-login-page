@@ -26,8 +26,21 @@ function sb_login_page_setting_field() {
     SB_Admin_Custom::add_recaptcha_setting_field('sb_login_page_section', 'sb_login_page');
     sb_login_page_add_admin_setting_field('sb_login_page_login_redirect', __('Login redirect', 'sb-login-page'), 'sb_login_page_login_redirect_callback');
     sb_login_page_add_admin_setting_field('sb_login_page_logout_redirect', __('Logout redirect', 'sb-login-page'), 'sb_login_page_logout_redirect_callback');
+    sb_login_page_add_admin_setting_field('sb_login_page_social_login', __('Social login', 'sb-login-page'), 'sb_login_page_social_login_callback');
 }
 add_action('sb_admin_init', 'sb_login_page_setting_field');
+
+function sb_login_page_social_login_callback() {
+    $options = SB_Option::get();
+    $value = isset($options['login_page']['social_login']) ? intval($options['login_page']['social_login']) : 1;
+    $args = array(
+        'id' => 'sb_login_page_social_login',
+        'name' => 'sb_options[login_page][social_login]',
+        'value' => $value,
+        'description' => __('Turn on or turn off the function for user connect account with social network.', 'sb-theme')
+    );
+    SB_Field::switch_button($args);
+}
 
 function sb_login_page_use_sb_login_callback() {
     $options = SB_Option::get();
