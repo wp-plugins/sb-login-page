@@ -34,6 +34,26 @@
     float: right;
     min-width: 350px;
 }
+.sb-accounts .sb-captcha img.captcha-code {
+    border: 1px solid #ddd;
+}
+.sb-accounts .sb-captcha img.reload {
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+    margin-left: 5px;
+    max-width: 20px;
+    opacity: 0.5;
+    vertical-align: top;
+}
+.sb-accounts .sb-captcha img.reload:hover {
+    opacity: 1;
+}
+.sb-accounts .sb-captcha img.reload.disabled {
+    cursor: default;
+    opacity: 0.3 !important;
+}
 .sb-accounts .login-links {
     font-size: 13px;
     margin-top: 10px;

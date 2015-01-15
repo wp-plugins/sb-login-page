@@ -16,7 +16,6 @@ function sb_login_page_style_and_script() {
 add_action('login_enqueue_scripts', 'sb_login_page_style_and_script');
 
 function sb_login_page_custom_style_and_script() {
-    wp_enqueue_script('recaptcha', SB_CORE_URL . '/lib/recaptcha/api.js', array(), false, true);
     wp_enqueue_style('sb-login-page-style', SB_LOGIN_PAGE_URL . '/css/sb-login-page-style.css');
     wp_enqueue_script('sb-login-page', SB_LOGIN_PAGE_URL . '/js/sb-login-page-script.js', array('jquery'), false, true);
     if(sb_login_page_is_lost_password_custom_page() || sb_login_page_is_account_custom_page()) {
@@ -191,6 +190,7 @@ add_filter('editable_roles', 'sb_login_page_editable_roles');
 function sb_login_page_user_profile_extra_field($user) {
     $user_id = $user->ID;
     $gender = get_the_author_meta('gender', $user_id);
+    $user_data = SB_User::get_data($user_id);
     ?>
     <h3><?php _e('Extra information', 'sb-login-page'); ?></h3>
     <table class="form-table">
@@ -220,6 +220,12 @@ function sb_login_page_user_profile_extra_field($user) {
         </tr>
         <?php if(SB_User::is_admin()) : ?>
             <tr>
+                <th><label for="user_nicename"><?php _e('User nice name', 'sb-login-page'); ?></label></th>
+                <td>
+                    <input type="text" class="regular-text" value="<?php echo $user_data->user_nicename; ?>" id="user_nicename" name="user_nicename">
+                </td>
+            </tr>
+            <tr>
                 <th><label for="activation_code"><?php _e('Activation code', 'sb-login-page'); ?></label></th>
                 <td>
                     <?php $code = SB_User::get_activation_code($user); ?>
@@ -241,6 +247,13 @@ function sb_login_page_save_profile($user_id) {
     $birthday = $birth_year . '-' . $birth_month . '-' . $birth_day;
     $birthday = strtotime($birthday);
     update_user_meta($user_id, 'birthday', $birthday);
+    $user_nicename = isset($_POST['user_nicename']) ? $_POST['user_nicename'] : '';
+    if(!empty($user_nicename)) {
+        $user_data = array(
+            'user_nicename' => $user_nicename
+        );
+        SB_User::update($user_id, $user_data);
+    }
 }
 add_action('personal_options_update', 'sb_login_page_save_profile');
 add_action('edit_user_profile_update', 'sb_login_page_save_profile');

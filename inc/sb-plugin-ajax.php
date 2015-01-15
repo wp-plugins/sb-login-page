@@ -141,6 +141,12 @@ function sb_login_page_signup_ajax_callback() {
     } elseif(email_exists($email) || username_exists($email)) {
         $result['valid'] = 0;
         $result['message'] = __('Địa chỉ email của bạn đã tồn tại', 'sb-login-page');
+    } elseif(sb_login_page_signup_captcha()) {
+        $captcha = isset($_POST['captcha']) ? $_POST['captcha'] : '';
+        if(sb_login_page_use_captcha() && !SB_Core::check_captcha($captcha)) {
+            $result['valid'] = 0;
+            $result['message'] = __('Mã bảo mật bạn nhập không đúng', 'sb-login-page');
+        }
     }
     echo json_encode($result);
     die();
@@ -230,7 +236,6 @@ function sb_login_page_change_personal_info_ajax_callback() {
             $nice_name = SB_PHP::remove_vietnamese($data);
             $nice_name = str_replace(' ', '-', $nice_name);
             $user_data = array(
-                'user_nicename' => $nice_name,
                 'display_name' => $data,
                 'first_name' => $first_name,
                 'last_name' => $last_name

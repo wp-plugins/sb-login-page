@@ -16,9 +16,12 @@ if(isset($_POST['signup-submit'])) {
     if(SB_User::exists($email)) {
         $has_error = true;
         $error_message = __('Địa chỉ email của bạn đã tồn tại.', 'sb-login-page');
-    } elseif(!$recaptcha_result) {
-        $has_error = true;
-        $error_message = __('Mã bảo mật bạn nhập không đúng.', 'sb-login-page');
+    } elseif(sb_login_page_signup_captcha()) {
+        $captcha = isset($_POST['signup-captcha']) ? $_POST['signup-captcha'] : '';
+        if(!SB_Core::check_captcha($captcha)) {
+            $has_error = true;
+            $error_message = __('Mã bảo mật bạn nhập không đúng', 'sb-login-page');
+        }
     }
 }
 if($has_error) {
@@ -31,6 +34,7 @@ if(!$has_error) {
         'password' => $password
     );
     $user_id = SB_User::add($args);
+    //$user_id = 0;
     if($user_id > 0) {
         $user_inserted = true;
         $user = SB_User::get_by('id', $user_id);
@@ -67,19 +71,6 @@ if(!$has_error) {
                         </div>
                         <div class="form-group">
                             <?php
-                            $text = __('Họ và tên', 'sb-login-page');
-                            $class = 'form-control';
-                            $key = 'name';
-                            $class = SB_PHP::add_string_with_space_before($class, 'signup-fullname');
-                            if(in_array($key, $required_fields)) {
-                                $class = SB_PHP::add_string_with_space_before($class, 'must-have');
-                            }
-                            ?>
-                            <label for="signup-fullname"><?php echo $text; ?></label>
-                            <input type="text" class="<?php echo $class; ?>" id="signup-fullname" placeholder="<?php echo $text; ?>" value="<?php echo $name; ?>" name="signup-fullname">
-                        </div>
-                        <div class="form-group">
-                            <?php
                             $text = __('Địa chỉ email', 'sb-login-page');
                             $class = 'form-control';
                             $key = 'email';
@@ -90,6 +81,19 @@ if(!$has_error) {
                             ?>
                             <label for="signup-email"><?php echo $text; ?></label>
                             <input type="text" class="<?php echo $class; ?>" id="signup-email" placeholder="<?php echo $text; ?>" value="<?php echo $email; ?>" name="signup-email">
+                        </div>
+                        <div class="form-group">
+                            <?php
+                            $text = __('Họ và tên', 'sb-login-page');
+                            $class = 'form-control';
+                            $key = 'name';
+                            $class = SB_PHP::add_string_with_space_before($class, 'signup-fullname');
+                            if(in_array($key, $required_fields)) {
+                                $class = SB_PHP::add_string_with_space_before($class, 'must-have');
+                            }
+                            ?>
+                            <label for="signup-fullname"><?php echo $text; ?></label>
+                            <input type="text" class="<?php echo $class; ?>" id="signup-fullname" placeholder="<?php echo $text; ?>" value="<?php echo $name; ?>" name="signup-fullname">
                         </div>
                         <div class="form-group">
                             <?php
@@ -143,9 +147,21 @@ if(!$has_error) {
                             <label for="signup-password-2"><?php echo $text; ?></label>
                             <input type="password" class="<?php echo $class; ?>" id="signup-password-2" placeholder="<?php echo $text; ?>" name="signup-password-2" value="<?php echo $re_password; ?>">
                         </div>
-                        <div class="form-group">
-                            <?php SB_Core::the_recaptcha(); ?>
-                        </div>
+                        <?php if(sb_login_page_signup_captcha()) : ?>
+                            <div class="form-group">
+                                <?php SB_Core::the_captcha(); ?>
+                            </div>
+                            <div class="form-group">
+                                <?php
+                                $text = __('Mã bảo mật', 'sb-login-page');
+                                $class = 'form-control must-have';
+                                $key = 'captcha';
+                                $class = SB_PHP::add_string_with_space_before($class, 'signup-captcha');
+                                ?>
+                                <label for="signup-captcha"><?php echo $text; ?></label>
+                                <input type="text" class="<?php echo $class; ?>" id="signup-captcha" placeholder="<?php echo $text; ?>" value="" name="signup-captcha">
+                            </div>
+                        <?php endif; ?>
                         <div class="form-group hidden-fields">
                             <?php wp_nonce_field('sb-signup-page', 'security'); ?>
                             <input type="hidden" value="1" name="signup-submit">

@@ -4,7 +4,7 @@ Donate link: http://hocwp.net/donate/
 Tags: sb, sb plugin, sb team, sb login page, wordpress login, login, login page
 Requires at least: 3.9
 Tested up to: 4.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,10 @@ Please visit [homepage](http://hocwp.net) for more details.
 Please update SB Core before you upgrade this plugin to new version.
 
 == Changelog ==
+
+= 1.0.6 =
+* Update new captcha functional.
+* Update option page.
 
 = 1.0.5 =
 * Add hook for user can hide deactivate link.

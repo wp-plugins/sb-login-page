@@ -188,14 +188,15 @@
                 errors = that.find('.errors'),
                 hidden_fields = that.find('.hidden-fields'),
                 success_field = that.find('.success-field'),
+                captcha_field = that.find('.signup-captcha'),
                 valid = true,
                 data = null;
 
-            if(full_name.hasClass('must-have') && !$.trim(full_name.val())) {
-                full_name.focus();
-                valid = false;
-            } else if(!$.trim(email.val())) {
+            if(!$.trim(email.val())) {
                 email.focus();
+                valid = false;
+            } else if(full_name.hasClass('must-have') && !$.trim(full_name.val())) {
+                full_name.focus();
                 valid = false;
             } else if(phone.hasClass('must-have') && !$.trim(phone.val())) {
                 phone.focus();
@@ -211,6 +212,9 @@
                 valid = false;
             } else if(re_password.val() != password.val()) {
                 re_password.focus();
+                valid = false;
+            } else if(captcha_field.length && !$.trim(captcha_field.val())) {
+                captcha_field.focus();
                 valid = false;
             }
             if(valid) {
@@ -228,7 +232,8 @@
                         name: full_name.val(),
                         phone: phone.val(),
                         address: address.val(),
-                        security: that.find('#security').val()
+                        security: that.find('#security').val(),
+                        captcha: captcha_field.val()
                     },
                     success: function(response){
                         var data = response;

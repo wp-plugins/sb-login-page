@@ -95,13 +95,19 @@ function sb_login_page_get_logout_redirect_url() {
     return $url;
 }
 
+function sb_login_page_signup_captcha() {
+    return apply_filters('sb_login_page_signup_captcha', sb_login_page_use_captcha());
+}
+
+function sb_login_page_use_captcha() {
+    $options = SB_Option::get();
+    $value = isset($options['login_page']['use_captcha']) ? intval($options['login_page']['use_captcha']) : 1;
+    return (bool)$value;
+}
+
 function sb_login_page_use_sb_login() {
     $options = SB_Option::get();
     $value = isset($options['login_page']['use_sb_login']) ? intval($options['login_page']['use_sb_login']) : 1;
-    $account_page_url = sb_login_page_get_page_account_url();
-    if(empty($account_page_url)) {
-        $value = false;
-    }
     return (bool)$value;
 }
 
