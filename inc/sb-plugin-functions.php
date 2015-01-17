@@ -183,3 +183,7 @@ function sb_login_page_create_user_role() {
 function sb_login_page_can_deactivate_account() {
     return apply_filters('sb_login_page_can_deactivate_account', true);
 }
+
+function sb_login_page_testing() {
+    return apply_filters('sb_login_page_testing', false);
+}

@@ -16,8 +16,13 @@ function sb_login_page_style_and_script() {
 add_action('login_enqueue_scripts', 'sb_login_page_style_and_script');
 
 function sb_login_page_custom_style_and_script() {
-    wp_enqueue_style('sb-login-page-style', SB_LOGIN_PAGE_URL . '/css/sb-login-page-style.css');
-    wp_enqueue_script('sb-login-page', SB_LOGIN_PAGE_URL . '/js/sb-login-page-script.js', array('jquery'), false, true);
+    if(sb_login_page_testing()) {
+        wp_enqueue_style('sb-login-page-style', SB_LOGIN_PAGE_URL . '/css/sb-login-page-style.css');
+        wp_enqueue_script('sb-login-page', SB_LOGIN_PAGE_URL . '/js/sb-login-page-script.js', array('jquery'), false, true);
+    } else {
+        wp_enqueue_style('sb-login-page-style', SB_LOGIN_PAGE_URL . '/css/sb-login-page-style.min.css');
+        wp_enqueue_script('sb-login-page', SB_LOGIN_PAGE_URL . '/js/sb-login-page-script.min.js', array('jquery'), false, true);
+    }
     if(sb_login_page_is_lost_password_custom_page() || sb_login_page_is_account_custom_page()) {
         wp_enqueue_script('password-strength-meter');
         wp_localize_script('password-strength-meter', 'pwsL10n', array(

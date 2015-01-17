@@ -186,7 +186,7 @@ $year_min = $year_max - 150;
                                 <p class="description"><?php _e('Nhập lại mật khẩu của bạn thêm lần nữa.', 'sb-login-page'); ?></p>
                             </div>
                         </div>
-                        <div class="control-group">
+                        <div class="control-group strength-group">
                             <label for="password-strength"></label>
                             <div class="controls">
                                 <?php SB_Core::the_strength_indicator(); ?>

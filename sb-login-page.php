@@ -4,7 +4,7 @@ Plugin Name: SB Login Page
 Plugin URI: http://hocwp.net/
 Description: SB Login Page is a plugin that allows user to custom WordPress login page.
 Author: SB Team
-Version: 1.0.6
+Version: 1.0.7
 Author URI: http://hocwp.net/
 Text Domain: sb-login-page
 Domain Path: /languages/

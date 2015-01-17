@@ -182,6 +182,11 @@
 .sb-accounts .sb-lost-password-form .reset-password {
     margin-bottom: 15px;
 }
+
+.sb-accounts .strength-group label {
+    display: none;
+}
+
 .sb-accounts .sb-password-strength-indicator {
     background-color: #eee;
     border: 1px solid #ddd;
@@ -192,6 +197,7 @@
     padding: 3px 5px;
     text-align: center;
     vertical-align: middle;
+    white-space: nowrap;
     width: 100%;
 }
 .sb-accounts .sb-password-strength-indicator.bad {
@@ -283,6 +289,7 @@
     font-size: 18px;
     font-weight: 700;
     line-height: 21px;
+    max-width: 185px;
     padding: 6px 0;
     white-space: nowrap;
     word-wrap: normal;
@@ -412,6 +419,15 @@
     line-height: 16px;
     padding: 7px;
 }
+
+.sb-accounts .user-gender,
+.sb-accounts .controls.birthday select {
+    border: 1px solid #eee;
+    color: #777;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
 body.sb-user {
     margin: 0;
 }
@@ -440,4 +456,127 @@ body.sb-user {
 }
 .sb-accounts .dashboard .module.user-avatar-box {
     min-height: 154px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .sb-accounts .user-gender, .sb-accounts .controls.birthday select {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+
+}
+
+@media only screen and (max-width: 800px) {
+    .sb-accounts .content-main .module input {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+
+}
+
+@media only screen and (max-width: 768px) {
+    .sb-accounts .dashboard {
+        width: 270px;
+    }
+    .sb-accounts .dashboard .user-display-name .name {
+        max-width: 165px;
+    }
+    .sb-accounts .content-main {
+        margin-left: 290px;
+    }
+    .sb-accounts .sb-signup-page .col-right,
+    .sb-accounts .sb-signup-page .col-left {
+        float: none;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .sb-accounts .sb-signup-page .col-left img {
+        margin-bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+
+}
+
+@media only screen and (max-width: 640px) {
+    .sb-accounts .dashboard,
+    .sb-accounts .content-main {
+        float: none;
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media only screen and (max-width: 568px) {
+
+}
+
+@media only screen and (max-width: 563px) {
+
+}
+
+@media only screen and (max-width: 549px) {
+
+}
+
+@media only screen and (max-width: 534px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+    .sb-accounts .sb-signup-page .col-right, .sb-accounts .sb-signup-page .col-left,
+    .sb-login-page-container > div {
+        max-width: 100%;
+    }
+    .sb-accounts .sb-signup-page {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .sb-accounts .sb-signup-form {
+        min-width: 180px;
+        width: 100%;
+    }
+    .sb-accounts .sb-signup-page .col-left img {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .sb-accounts .content-main .module .controls {
+        margin-left: 0;
+    }
+    .sb-accounts .content-main .module label {
+        text-align: left;
+        width: 100%;
+    }
+    .sb-accounts .form-actions {
+        padding-left: 0;
+    }
+    .sb-accounts .content-main .module .gender label,
+    .sb-accounts .content-main .module .birthday label {
+        display: inline-block;
+        width: 70px;
+    }
+}
+
+@media only screen and (max-width: 338px) {
+
+}
+
+@media only screen and (max-width: 330px) {
+
+}
+
+@media only screen and (max-width: 320px) {
+
 }
