@@ -1,39 +1,19 @@
 <?php
 function sb_login_page_login_ajax_callback() {
     check_ajax_referer('sb-login-page', 'security');
+    $login_email = isset($_POST['email']) ? trim($_POST['email']) : '';
+    $login_password = isset($_POST['password']) ? trim($_POST['password']) : '';
+    $remember = isset($_POST['remember']) ? (bool)$_POST['remember'] : true;
     $count_logged_in_fail = SB_User::count_logged_in_fail_session();
     $cookie = SB_User::get_logged_in_fail_cookie();
-    $result = array();
-    if($count_logged_in_fail < 3) {
-        $login_email = isset($_POST['email']) ? trim($_POST['email']) : '';
-        $login_password = isset($_POST['password']) ? trim($_POST['password']) : '';
-        $remember = isset($_POST['remember']) ? (bool)$_POST['remember'] : true;
-        $member = SB_User::get_by_email_or_login($login_email);
-        if(SB_User::is($member) && SB_User::is_awaiting_activation($member->ID)) {
-            $result['logged_in'] = false;
-            $result['user_id'] = $member->ID;
-            $result['message'] = __('Tài khoản của bạn chưa được kích hoạt', 'sb-login-page');
-            $result['redirect'] = SB_User::get_account_verify_url($member->ID);
-        } else {
-            $user = SB_User::login($login_email, $login_password, $remember);
-            if(is_wp_error($user) || !SB_User::is($user)) {
-                $result['logged_in'] = false;
-                $result['user_id'] = -1;
-                SB_User::update_logged_in_fail_session();
-            } else {
-                $result['logged_in'] = true;
-                $result['user_id'] = $user->ID;
-            }
-        }
-    } else {
-        $result['logged_in'] = false;
-        $result['user_id'] = -1;
-        if(1 != $cookie) {
-            SB_User::update_logged_in_fail_session();
-            SB_User::update_logged_in_fail_cookie();
-            $result['block_login'] = true;
-        }
-    }
+    $args = array(
+        'email' => $login_email,
+        'password' => $login_password,
+        'remember' => $remember,
+        'count_logged_in_fail' => $count_logged_in_fail,
+        'cookie' => $cookie
+    );
+    $result = sb_login_page_login_ajax($args);
     echo json_encode($result);
     die();
 }
@@ -127,27 +107,19 @@ add_action('wp_ajax_nopriv_sb_login_page_reset_password', 'sb_login_page_reset_p
 
 function sb_login_page_signup_ajax_callback() {
     check_ajax_referer('sb-signup-page', 'security');
-    $result = array();
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
     $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
     $password = isset($_POST['password']) ? trim($_POST['password']) : '';
     $address = isset($_POST['address']) ? trim($_POST['address']) : '';
-    $result['valid'] = 1;
-    $result['success_field'] = '<input type="hidden" value="1" class="success-field" name="singup-success">';
-    if(!SB_PHP::is_email_valid($email)) {
-        $result['valid'] = 0;
-        $result['message'] = __('Địa chỉ email của bạn không đúng', 'sb-login-page');
-    } elseif(email_exists($email) || username_exists($email)) {
-        $result['valid'] = 0;
-        $result['message'] = __('Địa chỉ email của bạn đã tồn tại', 'sb-login-page');
-    } elseif(sb_login_page_signup_captcha()) {
-        $captcha = isset($_POST['captcha']) ? $_POST['captcha'] : '';
-        if(sb_login_page_use_captcha() && !SB_Core::check_captcha($captcha)) {
-            $result['valid'] = 0;
-            $result['message'] = __('Mã bảo mật bạn nhập không đúng', 'sb-login-page');
-        }
-    }
+    $args = array(
+        'email' => $email,
+        'phone' => $phone,
+        'name' => $name,
+        'password' => $password,
+        'address' => $address
+    );
+    $result = sb_login_page_signup_ajax($args);
     echo json_encode($result);
     die();
 }

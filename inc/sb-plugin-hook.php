@@ -54,11 +54,13 @@ function sb_login_page_init() {
             return;
         }
         $login_url = sb_login_page_get_page_account_url();
-        if(!empty($action)) {
+        if(!empty($login_url) && !empty($action)) {
             $login_url = add_query_arg(array('action' => $action), $login_url);
         }
-        wp_redirect($login_url);
-        exit();
+        if(!empty($login_url)) {
+            wp_redirect($login_url);
+            exit();
+        }
     }
 }
 if(sb_login_page_use_sb_login()) add_action('init', 'sb_login_page_init');
