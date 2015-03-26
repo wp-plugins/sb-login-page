@@ -121,7 +121,9 @@ function sb_login_page_get_page_register_url() {
     }
     if(empty($login_url)) {
         $login_url = sb_login_page_get_page_account_url();
-        $login_url = add_query_arg(array('action' => 'register'), $login_url);
+        if(!empty($login_url)) {
+            $login_url = add_query_arg(array('action' => 'register'), $login_url);
+        }
     }
     return $login_url;
 }
@@ -157,7 +159,9 @@ function sb_login_page_get_page_login_url() {
     }
     if(empty($login_url)) {
         $login_url = sb_login_page_get_page_account_url();
-        $login_url = add_query_arg(array('action' => 'login'), $login_url);
+        if(!empty($login_url)) {
+            $login_url = add_query_arg(array('action' => 'login'), $login_url);
+        }
     }
     return $login_url;
 }
