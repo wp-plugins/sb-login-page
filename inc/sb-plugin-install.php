@@ -42,6 +42,11 @@ function sb_login_page_activation() {
 }
 register_activation_hook(SB_LOGIN_PAGE_FILE, 'sb_login_page_activation');
 
+function sb_login_page_deactivation() {
+    do_action( 'sb_login_page_deactivation' );
+}
+register_deactivation_hook( SB_LOGIN_PAGE_FILE, 'sb_login_page_deactivation' );
+
 function sb_login_page_check_admin_notices() {
     if(!empty($GLOBALS['pagenow']) && 'plugins.php' === $GLOBALS['pagenow']) {
         if(!sb_login_page_check_core()) {

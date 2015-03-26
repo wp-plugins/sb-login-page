@@ -155,9 +155,19 @@ function sb_login_page_body_class($classes) {
 add_filter('body_class', 'sb_login_page_body_class');
 
 function sb_login_page_plugin_loaded() {
-    sb_login_page_create_page_templates();
+
 }
 add_action('plugins_loaded', 'sb_login_page_plugin_loaded');
+
+function sb_login_page_plugin_activated() {
+    sb_login_page_create_page_templates();
+}
+add_action('sb_login_page_activation', 'sb_login_page_plugin_activated');
+
+function sb_login_page_plugin_deactivated() {
+    sb_login_page_delete_page_templates();
+}
+add_action('sb_login_page_deactivation', 'sb_login_page_plugin_deactivated');
 
 function sb_login_page_custom_logout_redirect($logout_url, $redirect) {
     $redirect = SB_User::get_logout_redirect();

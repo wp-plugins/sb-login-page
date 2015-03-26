@@ -1,22 +1,20 @@
 <?php
-$wp_rewrite = new WP_Rewrite();
-
-function sb_login_page_create_page_templates() {
+function sb_login_page_page_template_arg() {
     $templates = array(
         array(
-            'file_name' => 'page-template-account.php',
+            'file_name' => SB_LOGIN_PAGE_ACCOUNT_TEMPLATE,
             'title' => __('Account', 'sb-login-page')
         ),
         array(
-            'file_name' => 'page-template-login.php',
+            'file_name' => SB_LOGIN_PAGE_LOGIN_TEMPLATE,
             'title' => __('Login', 'sb-login-page')
         ),
         array(
-            'file_name' => 'page-template-lost-password.php',
+            'file_name' => SB_LOGIN_PAGE_LOST_PASSWORD_TEMPLATE,
             'title' => __('Lost password', 'sb-login-page')
         ),
         array(
-            'file_name' => 'page-template-register.php',
+            'file_name' => SB_LOGIN_PAGE_REGISTER_TEMPLATE,
             'title' => __('Register', 'sb-login-page')
         )
     );
@@ -25,7 +23,37 @@ function sb_login_page_create_page_templates() {
         'folder_path' => 'page-templates',
         'templates' => $templates
     );
+    return $args;
+}
+
+function sb_login_page_create_page_templates() {
+    $args = sb_login_page_page_template_arg();
     SB_Core::create_page_template($args);
+}
+
+function sb_login_page_delete_page_templates() {
+    $args = sb_login_page_page_template_arg();
+    SB_Core::delete_page_template($args);
+}
+
+function sb_login_page_get_user_page_url($args = array()) {
+    $page_id = isset($args['page_id']) ? absint($args['page_id']) : 0;
+    $page_template = isset($args['page_template']) ? $args['page_template'] : '';
+    $action = isset($args['action']) ? $args['action'] : '';
+    $url = '';
+    if($page_id > 0) {
+        $template_name = get_post_meta($page_id, '_wp_page_template', true);
+        if('page-templates/' . $page_template == $template_name) {
+            $url = get_permalink($page_id);
+        }
+    }
+    if(empty($url)) {
+        $url = sb_login_page_get_page_account_url();
+        if(!empty($url)) {
+            $url = add_query_arg(array('action' => $action), $url);
+        }
+    }
+    return $url;
 }
 
 function sb_login_page_get_page_lost_password_id() {
@@ -36,18 +64,12 @@ function sb_login_page_get_page_lost_password_id() {
 }
 
 function sb_login_page_get_page_lost_password_url() {
-    $page_lost_password_id = sb_login_page_get_page_lost_password_id();
-    $login_url = '';
-    if($page_lost_password_id > 0) {
-        $login_url = get_permalink($page_lost_password_id);
-    }
-    if(empty($login_url)) {
-        $login_url = sb_login_page_get_page_account_url();
-        if(!empty($login_url)) {
-            $login_url = add_query_arg(array('action' => 'lostpassword'), $login_url);
-        }
-    }
-    return $login_url;
+    $args = array(
+        'page_id' => sb_login_page_get_page_lost_password_id(),
+        'page_template' => SB_LOGIN_PAGE_LOST_PASSWORD_TEMPLATE,
+        'action' => 'lostpassword'
+    );
+    return sb_login_page_get_user_page_url($args);
 }
 
 function sb_login_page_get_page_register_id() {
@@ -55,6 +77,50 @@ function sb_login_page_get_page_register_id() {
     $value = isset($options['login_page']['page_register']) ? $options['login_page']['page_register'] : 0;
     $value = intval($value);
     return $value;
+}
+
+function sb_login_page_get_page_register_url() {
+    $args = array(
+        'page_id' => sb_login_page_get_page_register_id(),
+        'page_template' => SB_LOGIN_PAGE_REGISTER_TEMPLATE,
+        'action' => 'register'
+    );
+    return sb_login_page_get_user_page_url($args);
+}
+
+function sb_login_page_get_page_account_id() {
+    $options = SB_Option::get();
+    $value = isset($options['login_page']['page_account']) ? $options['login_page']['page_account'] : 0;
+    $value = intval($value);
+    return $value;
+}
+
+function sb_login_page_get_page_account_url() {
+    $page_account_id = sb_login_page_get_page_account_id();
+    $login_url = '';
+    if($page_account_id > 0) {
+        $template_name = get_post_meta($page_account_id, '_wp_page_template', true);
+        if('page-templates/' . SB_LOGIN_PAGE_ACCOUNT_TEMPLATE == $template_name) {
+            $login_url = get_permalink($page_account_id);
+        }
+    }
+    return $login_url;
+}
+
+function sb_login_page_get_page_login_id() {
+    $options = SB_Option::get();
+    $value = isset($options['login_page']['page_login']) ? $options['login_page']['page_login'] : 0;
+    $value = intval($value);
+    return $value;
+}
+
+function sb_login_page_get_page_login_url() {
+    $args = array(
+        'page_id' => sb_login_page_get_page_login_id(),
+        'page_template' => SB_LOGIN_PAGE_LOGIN_TEMPLATE,
+        'action' => 'login'
+    );
+    return sb_login_page_get_user_page_url($args);
 }
 
 function sb_login_page_get_login_redirect_url() {
@@ -111,59 +177,6 @@ function sb_login_page_use_sb_login() {
     $options = SB_Option::get();
     $value = isset($options['login_page']['use_sb_login']) ? intval($options['login_page']['use_sb_login']) : 1;
     return (bool)$value;
-}
-
-function sb_login_page_get_page_register_url() {
-    $page_register_id = sb_login_page_get_page_register_id();
-    $login_url = '';
-    if($page_register_id > 0) {
-        $login_url = get_permalink($page_register_id);
-    }
-    if(empty($login_url)) {
-        $login_url = sb_login_page_get_page_account_url();
-        if(!empty($login_url)) {
-            $login_url = add_query_arg(array('action' => 'register'), $login_url);
-        }
-    }
-    return $login_url;
-}
-
-function sb_login_page_get_page_account_id() {
-    $options = SB_Option::get();
-    $value = isset($options['login_page']['page_account']) ? $options['login_page']['page_account'] : 0;
-    $value = intval($value);
-    return $value;
-}
-
-function sb_login_page_get_page_account_url() {
-    $page_account_id = sb_login_page_get_page_account_id();
-    $login_url = '';
-    if($page_account_id > 0) {
-        $login_url = get_permalink($page_account_id);
-    }
-    return $login_url;
-}
-
-function sb_login_page_get_page_login_id() {
-    $options = SB_Option::get();
-    $value = isset($options['login_page']['page_login']) ? $options['login_page']['page_login'] : 0;
-    $value = intval($value);
-    return $value;
-}
-
-function sb_login_page_get_page_login_url() {
-    $page_login_id = sb_login_page_get_page_login_id();
-    $login_url = '';
-    if($page_login_id > 0) {
-        $login_url = get_permalink($page_login_id);
-    }
-    if(empty($login_url)) {
-        $login_url = sb_login_page_get_page_account_url();
-        if(!empty($login_url)) {
-            $login_url = add_query_arg(array('action' => 'login'), $login_url);
-        }
-    }
-    return $login_url;
 }
 
 function sb_login_page_is_login_custom_page() {
